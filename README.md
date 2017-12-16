@@ -3,20 +3,18 @@
 
 > A Vue.js project
 
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
+##初始化vue项目
+vue init webpack vue2-shop
+##初始化express-generator
+**全局安装的npm包**
+```
+npm list -g --depth=0 //全部安装的npm包
+npm i -g express-generator //express-generator生成项目骨架
+express --ejs server //生成项目server，指定使用ejs模板
+cd server
+npm install //安装依赖包
+npm start //启动项目
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+

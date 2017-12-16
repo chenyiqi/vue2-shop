@@ -20,8 +20,19 @@ const autoOpenBrowser = !!config.dev.autoOpenBrowser
 // Define HTTP proxies to your custom API backend
 // https://github.com/chimurai/http-proxy-middleware
 const proxyTable = config.dev.proxyTable
-
+const goodsList = require('./../mock/goods.json');
 const app = express()
+const router = express.Router();
+router.get('/hello', function(req, res) {
+  res.end('hello world');
+});
+
+router.get('/goods', function(req, res) {
+  res.json(goodsList);
+});
+
+app.use(router);
+
 const compiler = webpack(webpackConfig)
 
 const devMiddleware = require('webpack-dev-middleware')(compiler, {
