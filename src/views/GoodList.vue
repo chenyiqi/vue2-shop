@@ -26,7 +26,7 @@
                 <div class="accessory-list-wrap">
                     <div class="accessory-list col-4">
                         <ul>
-                            <li v-for="item in goodsList.result">
+                            <li v-for="item in goodsList">
                                 <div class="pic">
                                     <a href="javascript:;"><img v-lazy="'/static/' + item.productImage" alt=""></a>
                                 </div>
@@ -87,7 +87,8 @@ export default {
             endPrice:'6000.00'
         }],
     priceChecked: 'all',
-    filterBy: false
+    filterBy: false,
+    overLayFlag: false
     }
   },
   mounted: function() {
@@ -101,8 +102,7 @@ export default {
   methods: {
       getGoodsList() {
           axios.get('/goods').then((result) => {
-              console.log(result);
-              this.goodsList = result.data;
+              this.goodsList = result.data.result.list;
           });
       },
       setpriceFilter(index) {
